@@ -1,6 +1,8 @@
 FROM node:24-bookworm-slim
 WORKDIR /app
-COPY --chown=node:node package.json server.js ./
+COPY --chown=node:node package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm@11.19.0 && pnpm install --prod --frozen-lockfile
+COPY --chown=node:node server.js postgres.js ./
 COPY --chown=node:node public ./public
 RUN mkdir /app/data && chown node:node /app/data
 USER node

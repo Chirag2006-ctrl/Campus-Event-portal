@@ -24,8 +24,8 @@ function filterEvents(){
 async function loadEvents(){
   try{
     const response=await fetch('/api/events');if(!response.ok)throw new Error();
-    events=(await response.json()).events;$('#event-count').textContent=String(events.length).padStart(2,'0');
-    $('#connection').textContent='Connected to server · Registrations saved in SQLite';filterEvents();
+    const data=await response.json();events=data.events;$('#event-count').textContent=String(events.length).padStart(2,'0');
+    $('#connection').textContent='Connected to server · Registrations saved in '+data.storage;filterEvents();
   }catch{
     $('#connection').textContent='Cannot connect to the server. Refresh the page to try again.';
     if(!events.length){$('#empty').textContent='Events are unavailable. Please try again later.';$('#empty').classList.add('visible');}
