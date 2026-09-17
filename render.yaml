@@ -1,0 +1,20 @@
+# Review hosting charges before applying: persistent disks require a paid service.
+services:
+  - type: web
+    name: campus-event-portal
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_PATH
+        value: /app/data/campus.db
+    disk:
+      name: campus-event-data
+      mountPath: /app/data
+      sizeGB: 1

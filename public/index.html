@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Event Portal</title>
+<link rel="stylesheet" href="/styles.css"><link rel="icon" href="/favicon.svg">
+</head>
+<body>
+<header><div class="nav"><div class="logo"><span class="logo-icon">▦</span>Campus Events</div><a class="nav-label" href="/admin">ADMINISTRATOR</a></div></header>
+<main class="main">
+<div class="intro"><div><div class="eyebrow">LEARN. BUILD. CONNECT.</div><h1>Your next opportunity starts here.</h1><p>Discover workshops, challenges and talks for curious minds.</p></div><div class="mini-calendar"><b id="event-count">—</b><span>sample events</span></div></div>
+<div class="toolbar"><div class="tabs" aria-label="Filter events"><button class="tab active" data-filter="All">All events</button><button class="tab" data-filter="Workshop">Workshops</button><button class="tab" data-filter="Competition">Competitions</button></div><div class="search"><input id="search" type="search" placeholder="Search events…" aria-label="Search events"></div></div>
+<section class="cards" aria-label="Available sample events" aria-live="polite"></section><div class="empty" id="empty">Loading events…</div>
+<div class="status" id="connection" role="status">Connecting to the event server…</div><div class="footer"><span>Illustrative student project · All events are sample data.</span><span>Responsive design · Database storage</span></div>
+</main>
+<div class="modal" id="modal"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title"><button class="close" aria-label="Close registration">×</button><div id="form-panel"><div class="eyebrow">SAVE YOUR SPOT</div><h2 id="dialog-title">Event registration</h2><p id="selected-event"></p><form id="registration" novalidate><label class="field">Your name<input id="name" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Enter your full name" required></label><label class="field">Email address<input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required></label><div class="error" id="error" role="alert"></div><button class="confirm" type="submit">Confirm registration</button><p class="notice">Academic demo. Your name and email are stored on the server. Use sample details for testing.</p></form></div><div id="success-panel" class="success hidden"><div class="tick">✓</div><h2>You're on the list!</h2><p>Your event registration is complete.</p><div class="saved-card"><b id="saved-event"></b><span id="saved-name"></span><br><span id="saved-email"></span><span id="receipt" class="receipt"></span></div><p class="notice">Registration saved to the database.</p><button class="confirm" id="done">Back to events</button></div></section></div>
+<script src="/app.js" defer></script>
+</body>
+</html>
